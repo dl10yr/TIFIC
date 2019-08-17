@@ -33,7 +33,7 @@
         </div>
       </li>
     </ul>
-    <div class="loading-bar">Loading more...</div>
+    <div class="loading-bar"></div>
     <button class="btn btn-info" @click="refresh">Refresh!</button>
   </pull-to>
 </template>

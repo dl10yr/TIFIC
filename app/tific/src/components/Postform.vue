@@ -44,6 +44,7 @@ export default {
             content: this.input,
             name: this.$store.getters.user.displayName,
             icon: this.$store.getters.user.photoURL,
+            user_uid: this.$store.getters.user.uid,
             created_at: new Date()
           })
           .then((this.post_success = "block"));

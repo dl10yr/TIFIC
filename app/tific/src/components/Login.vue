@@ -2,8 +2,13 @@
   <div>
     <h1>
       言葉だけは、
-      <br />短い方が刺さる。
+      <br />短い方がよく刺さる。
     </h1>
+    <h3>
+      「まだ140字もつぶやいてんの？」は、
+      <br />1回につき20字までの投稿ができる
+      <br />Twitter風掲示板です。
+    </h3>
     <div id="firebaseui-auth-container"></div>
   </div>
 </template>
@@ -36,9 +41,19 @@ h1 {
   color: #000000; /*文字色*/
   padding: 0.5em 0; /*上下の余白*/
   font-weight: bold;
-  font-size: 32px;
+  font-size: 25px;
   border-top: solid 5px #000000; /*上線*/
   border-bottom: solid 5px #000000; /*下線*/
+  margin: 1em;
+  text-align: center;
+  text-justify: inter-ideograph;
+}
+
+h3 {
+  color: #000000; /*文字色*/
+  padding: 0.5em 0; /*上下の余白*/
+  font-weight: bold;
+  font-size: 18px;
   margin: 1em;
   text-align: center;
   text-justify: inter-ideograph;

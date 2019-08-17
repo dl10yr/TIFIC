@@ -2,14 +2,14 @@ import firebase from 'firebase'
 import store from './store'
 
 var config = {
-    apiKey: "AIzaSyCvYp08Ly0AMbgg6jaUtEsVlcYbknT8X5I",
-    authDomain: "tific-4bbf9.firebaseapp.com",
-    databaseURL: "https://tific-4bbf9.firebaseio.com",
-    projectId: "tific-4bbf9",
-    storageBucket: "tific-4bbf9.appspot.com",
-    messagingSenderId: "171175726883",
-    appId: "1:171175726883:web:b1f5600ee730d0f1"
-}
+    apiKey: "AIzaSyB-k_mUAK4rEgrrwKOU_-ib6eFknz3FfYM",
+    authDomain: "not140but20-26af7.firebaseapp.com",
+    databaseURL: "https://not140but20-26af7.firebaseio.com",
+    projectId: "not140but20-26af7",
+    storageBucket: "",
+    messagingSenderId: "296640611784",
+    appId: "1:296640611784:web:bc2dbcc76de66d8e"
+};
 
 export default {
     init() {
