@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         user: {},
         isLogin: false,
+        isKiyaku: false,
     },
     mutations: {
         setUser(state, user) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
         setLogin(state, isLogin) {
             state.isLogin = isLogin; //ログインしてるかどうか true or false
         },
+        setKiyaku(state, isKiyaku) {
+            state.isKiyaku = isKiyaku;
+        }
     },
     getters: {
         user(state) {
@@ -23,5 +27,8 @@ export default new Vuex.Store({
         isLogin(state) {
             return state.isLogin;
         },
+        isKiyaku(state) {
+            return state.isKiyaku;
+        }
     }
 });

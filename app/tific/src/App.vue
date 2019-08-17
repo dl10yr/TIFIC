@@ -1,9 +1,10 @@
 <template>
   <div class="app">
     <Navbar />
-    <Postform v-if="isLogin" />
-    <Login v-if="!isLogin"></Login>
-    <div v-if="isLogin" class="view-wrapper">
+    <Kiyaku v-if="isKiyaku" />
+    <Postform v-if="isLogin && !isKiyaku" />
+    <Login v-if="!isLogin && !isKiyaku"></Login>
+    <div v-if="isLogin && !isKiyaku" class="view-wrapper">
       <RouterView />
     </div>
   </div>
@@ -13,12 +14,14 @@
 import Navbar from "./components/Navbar.vue";
 import Postform from "./components/Postform.vue";
 import Login from "./components/Login";
+import Kiyaku from "./components/Kiyaku";
 
 export default {
   components: {
     Navbar,
     Postform,
-    Login
+    Login,
+    Kiyaku
   },
   computed: {
     isLogin() {
@@ -26,6 +29,9 @@ export default {
     },
     loginUser() {
       return this.$store.getters.user;
+    },
+    isKiyaku() {
+      return this.$store.getters.isKiyaku;
     }
   }
 };

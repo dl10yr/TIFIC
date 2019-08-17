@@ -32,4 +32,9 @@ export default {
         store.commit('setUser', firebase.auth().currentUser)
         store.commit('setLogin', true)
     },
+    kiyaku() {
+        // const provider = new firebase.auth.TwitterAuthProvider();
+        // firebase.auth().signInWithPopup(provider);
+        store.commit('setKiyaku', !store.state.isKiyaku)
+    },
 }

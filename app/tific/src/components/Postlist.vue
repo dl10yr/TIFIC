@@ -211,7 +211,7 @@ li :hover {
 .li-item {
   display: inline-block;
   vertical-align: top;
-  max-width: 70%;
+  max-width: 75%;
 }
 .item-content {
   width: 100%;

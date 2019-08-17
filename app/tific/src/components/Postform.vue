@@ -2,16 +2,17 @@
   <div>
     <div class="alert alert-success" v-bind:style="{display: post_success }">SENT!</div>
     <form action class="m-1" @submit.prevent="sendPost">
-      <textarea
+      <input
+        type="text"
         class="form-control"
         id="input"
         placeholder="Shorter is Better!!!"
         v-model="input"
-        maxlength="35"
+        maxlength="20"
         minlength="1"
         required
-      ></textarea>
-      <p class="help-block mb-1">{{csCount}}/35</p>
+      />
+      <p class="help-block mb-1">{{csCount}}/20</p>
       <button class="btn btn-primary btn-block m-1 p-1" type="submit">POST</button>
     </form>
   </div>

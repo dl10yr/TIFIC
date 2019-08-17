@@ -12,10 +12,13 @@
 var firebase = require("firebase");
 var firebaseui = require("firebaseui-ja");
 require("firebaseui-ja/dist/firebaseui.css");
+// import fb from "../firebase";
 
 export default {
   mounted() {
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    var ui =
+      firebaseui.auth.AuthUI.getInstance() ||
+      new firebaseui.auth.AuthUI(firebase.auth());
     ui.start("#firebaseui-auth-container", {
       signInOptions: [
         //firebase.auth.EmailAuthProvider.PROVIDER_ID,
