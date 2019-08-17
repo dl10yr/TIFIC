@@ -3,9 +3,14 @@ import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+//import firebase from 'firebase'
+//import store from './store'
 
 //ページコンポーネント
-import TIFICList from './views/TIFICList.vue'
+//import TIFICList from './views/TIFICList.vue'
+import Home from './views/Home.vue'
+//import Search from './views/Search.vue'
+//import Login from './views/Login.vue'
 //import myTIFICList from './views/myTIFICList.vue'
 
 
@@ -19,11 +24,11 @@ Vue.use(BootstrapVue);
 const routes = [
   {
     path: '/',
-    component: TIFICList
+    component: Home,
   },
   // {
-  //   path: '/search',
-  //   component: Search,
+  //   path: '/login',
+  //   component: Login,
   //   props: true,
   // },
 ];
@@ -35,7 +40,30 @@ const router = new VueRouter({
   routes
 });
 
+// router.beforeEach((to, from, next) => {
+//   // ルート認証があるかチェック
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//     var docchi = store.state.isLogin
+//     console.log(docchi)
+//     // ユーザログ
+//     if (!store.state.isLogin) {
+//       next({
+//         path: '/login'
+//       })
+//     } else {
+//       next({
+//         path: '/'
+//       }
+//       )
+//     }
+//   } else {
+//     // ルートの認証を設定していない場合はこっち
+//     next()
+//   }
+
+// });
+
+
 //VueRouterインスタンスエクスポート
 //app.jsでインポート
 export default router;
-  

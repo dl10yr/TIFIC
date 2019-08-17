@@ -27,8 +27,8 @@ export default {
         })
     },
     login() {
-        const provider = new firebase.auth.TwitterAuthProvider()
-        firebase.auth().signInWithPopup(provider)
+        // const provider = new firebase.auth.TwitterAuthProvider();
+        // firebase.auth().signInWithPopup(provider);
         store.commit('setUser', firebase.auth().currentUser)
         store.commit('setLogin', true)
     },

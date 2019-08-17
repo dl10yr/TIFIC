@@ -7,7 +7,7 @@
     <!-- ログイン時にはフォームとログアウトボタンを表示 -->
     <div v-if="isLogin" key="login" class="float-sm-right">
       <img :src="loginUser.photoURL" width="40" height="40" hspace="10" />
-      <button type="button" class="btn btn-warning" @click="logout()">Logout</button>
+      <button type="button" class="btn btn-warning" @click="doLogout">Logout</button>
     </div>
     <!-- 未ログイン時にはログインボタンを表示 -->
     <!-- <div v-else key="logout" class="float-sm-right">
@@ -17,31 +17,16 @@
 </template>
 
 <script>
-var firebase = require("firebase");
+import fb from "../firebase";
+import firebase from "firebase";
 
 export default {
-  name: "Logout",
-  // props: ["isLogin", "loginUser"],
-  methods: {
-    // ログアウト
-    logout() {
-      var vm = this;
-      if (!firebase.auth().currentUser) {
-        alert("ログインしてください。");
-        return;
-      }
-      firebase
-        .auth()
-        .signOut()
-        .then(function(res) {
-          console.log("signOut", res);
-          alert("ログアウトしました。");
-          vm.$router.go();
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
+  components: {},
+  data() {
+    return {
+      user: {},
+      showForm: false
+    };
   },
   computed: {
     isLogin() {
@@ -49,6 +34,16 @@ export default {
     },
     loginUser() {
       return this.$store.getters.user;
+    }
+  },
+  methods: {
+    // ログイン処理
+    doLogin() {
+      fb.login();
+    },
+    // ログアウト処理
+    doLogout() {
+      fb.logout();
     }
   }
 };

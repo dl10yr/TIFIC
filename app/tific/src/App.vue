@@ -74,7 +74,7 @@ ul {
 .view-wrapper {
   box-sizing: border-box;
   padding-top: 20px;
-  height: 65%;
+  height: 50%;
   background: #f6f6f6;
   margin-top: 0px;
 }

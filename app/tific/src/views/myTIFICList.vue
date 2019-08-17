@@ -1,81 +1,83 @@
 <template>
   <div>
     <TIFICForm v-model="isLogin" />
-    <TIFIC
-      v-for="cry in cries"
-      :key="cry.id"
-      :item="cry"
-      />
-    
+    <TIFIC v-for="cry in cries" :key="cry.id" :item="cry" />
   </div>
 </template>
 
 <script>
-import firebase from 'firebase'
-import Nl2br from 'vue-nl2br'
+import firebase from "firebase";
+import Nl2br from "vue-nl2br";
 export default {
   components: { Nl2br },
   data() {
     return {
       user: {},
       tific: {},
-      input: ''
-    }
+      input: ""
+    };
   },
   created() {
     firebase.auth().onAuthStateChanged(user => {
-      this.user = user ? user : {}
-      const ref_message = firebase.database().ref('message')
+      this.user = user ? user : {};
+      const ref_message = firebase.database().ref("message");
       if (user) {
-        this.chat = []
+        this.chat = [];
         // message に変更があったときのハンドラを登録
-        ref_message.limitToLast(10).on('child_added', this.childAdded)
+        ref_message.limitToLast(10).on("child_added", this.childAdded);
       } else {
         // message に変更があったときのハンドラを解除
-        ref_message.limitToLast(10).off('child_added', this.childAdded)
+        ref_message.limitToLast(10).off("child_added", this.childAdded);
       }
-    })
+    });
   },
   methods: {
     // ログイン処理
     doLogin() {
-      const provider = new firebase.auth.TwitterAuthProvider()
-      firebase.auth().signInWithPopup(provider)
+      const provider = new firebase.auth.TwitterAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+      this.$router.go("/");
     },
     // ログアウト処理
     doLogout() {
-      firebase.auth().signOut()
+      firebase.auth().signOut();
     },
     // スクロール位置を一番下に移動
     scrollBottom() {
       this.$nextTick(() => {
-        window.scrollTo(0, document.body.clientHeight)
-      })
+        window.scrollTo(0, document.body.clientHeight);
+      });
     },
     // 受け取ったメッセージをchatに追加
     // データベースに新しい要素が追加されると随時呼び出される
     childAdded(snap) {
-      const message = snap.val()
+      const message = snap.val();
       this.chat.push({
         key: snap.key,
         name: message.name,
         image: message.image,
         message: message.message
-      })
-      this.scrollBottom()
+      });
+      this.scrollBottom();
     },
     doSend() {
       if (this.user.uid && this.input.length) {
         // firebase にメッセージを追加
-        firebase.database().ref('message').push({
-          message: this.input,
-          name: this.user.displayName,
-          image: this.user.photoURL
-        }, () => {
-          this.input = '' // フォームを空にする
-        })
+        firebase
+          .database()
+          .ref("message")
+          .push(
+            {
+              message: this.input,
+              name: this.user.displayName,
+              image: this.user.photoURL
+            },
+            () => {
+              this.input = ""; // フォームを空にする
+            }
+          );
       }
     }
   }
-}
+};
 </script>
