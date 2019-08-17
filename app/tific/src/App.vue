@@ -2,7 +2,8 @@
   <div class="app">
     <Navbar />
     <Postform v-if="isLogin" />
-    <div class="view-wrapper">
+    <Login v-if="!isLogin"></Login>
+    <div v-if="isLogin" class="view-wrapper">
       <RouterView />
     </div>
   </div>
@@ -11,11 +12,13 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import Postform from "./components/Postform.vue";
+import Login from "./components/Login";
 
 export default {
   components: {
     Navbar,
-    Postform
+    Postform,
+    Login
   },
   computed: {
     isLogin() {
@@ -74,8 +77,33 @@ ul {
 .view-wrapper {
   box-sizing: border-box;
   padding-top: 20px;
-  height: 50%;
   background: #f6f6f6;
   margin-top: 0px;
+}
+
+@media (min-height: 1025px) {
+  .view-wrapper {
+    height: 85%;
+  }
+}
+@media (max-height: 1025px) and (min-height: 813px) {
+  .view-wrapper {
+    height: 82%;
+  }
+}
+@media (max-height: 813px) and (min-height: 668px) {
+  .view-wrapper {
+    height: 65%;
+  }
+}
+@media (max-height: 668px) and (min-height: 568px) {
+  .view-wrapper {
+    height: 60%;
+  }
+}
+@media (max-height: 568px) {
+  .view-wrapper {
+    height: 55%;
+  }
 }
 </style>

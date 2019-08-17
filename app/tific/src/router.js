@@ -8,7 +8,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 //ページコンポーネント
 //import TIFICList from './views/TIFICList.vue'
-import Home from './views/Home.vue'
+//import Home from './views/Home.vue'
+import Postlist from './components/Postlist.vue'
 //import Search from './views/Search.vue'
 //import Login from './views/Login.vue'
 //import myTIFICList from './views/myTIFICList.vue'
@@ -24,7 +25,7 @@ Vue.use(BootstrapVue);
 const routes = [
   {
     path: '/',
-    component: Home,
+    component: Postlist,
   },
   // {
   //   path: '/login',
