@@ -1,7 +1,12 @@
 <template>
   <nav class="navbar navbar-light mb-2" style="background-color: #000000">
     <RouterLink class="navbar-brand mb-0 h1 font-weight-bolder text-danger" to="/">まだ140字もつぶやいてんの？</RouterLink>
-    <button type="button" class="btn btn-info btn-sm mb-2 float-sm-left" @click="kiyaku()">
+    <button
+      v-if="!isLogin"
+      type="button"
+      class="btn btn-info btn-sm mb-2 float-sm-left"
+      @click="kiyaku()"
+    >
       <small>利用規約・プライバシーポリシー・お問い合わせ</small>
     </button>
     <!-- ログイン時にはフォームとログアウトボタンを表示 -->

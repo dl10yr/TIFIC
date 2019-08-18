@@ -34,7 +34,7 @@
       </li>
     </ul>
     <div class="loading-bar"></div>
-    <button class="btn btn-info" @click="refresh">Refresh!</button>
+    <button class="btn btn-info btn-refresh" @click="refresh">Refresh!</button>
   </pull-to>
 </template>
 
@@ -225,5 +225,7 @@ img {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 999;
+  transform: translate3d(0, 0, 0);
 }
 </style>
