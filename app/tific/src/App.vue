@@ -4,7 +4,7 @@
     <Kiyaku v-if="isKiyaku" />
     <Postform v-if="isLogin && !isKiyaku" />
     <Login v-if="!isLogin && !isKiyaku"></Login>
-    <div v-if="isLogin && !isKiyaku" class="view-wrapper">
+    <div v-if="!isKiyaku" class="view-wrapper">
       <RouterView />
     </div>
   </div>

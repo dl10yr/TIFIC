@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h1>
+    <!-- <h1>
       言葉だけは、
       <br />短い方がよく刺さる。
-    </h1>
-    <h3>
+    </h1> !-->
+    <!-- <h5>
       「まだ140字もつぶやいてんの？」は、
       <br />1回につき20字までの投稿ができる
       <br />Twitter風掲示板です。
-    </h3>
+    </h5>-->
+    <h3>Twitterでログインすると投稿できます。</h3>
     <div id="firebaseui-auth-container"></div>
   </div>
 </template>
